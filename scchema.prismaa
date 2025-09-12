@@ -1,0 +1,77 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model City {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  clinics   Clinic[]
+  isActive  Boolean  @default(true)
+}
+
+model Clinic {
+  id          Int      @id @default(autoincrement())
+  name        String
+  address     String
+  city        City     @relation(fields: [cityId], references: [id])
+  cityId      Int
+  doctors     Doctor[]
+}
+
+model Doctor {
+  id          Int          @id @default(autoincrement())
+  name        String
+  specialty   String
+  bio         String?
+  slug        String       @unique
+  clinic      Clinic       @relation(fields: [clinicId], references: [id])
+  clinicId    Int
+  secretary   Secretary?   @relation(fields: [secretaryId], references: [id])
+  secretaryId Int?
+  appointments Appointment[]
+}
+
+model Secretary {
+  id       Int       @id @default(autoincrement())
+  name     String
+  user     User      @relation(fields: [userId], references: [id])
+  userId   String    @unique
+  doctors  Doctor[]
+}
+
+model Appointment {
+  id           Int      @id @default(autoincrement())
+  datetime     DateTime
+  patientName  String
+  patientPhone String
+  status       AppointmentStatus @default(PENDING)
+  doctor       Doctor   @relation(fields: [doctorId], references: [id])
+  doctorId     Int
+  createdAt    DateTime @default(now())
+}
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  password      String
+  role          Role      @default(SECRETARY)
+  secretary     Secretary?
+}
+
+enum AppointmentStatus {
+  PENDING
+  CONFIRMED
+  CANCELLED
+  COMPLETED
+}
+
+enum Role {
+  SECRETARY
+  ADMIN
+  SUPERADMIN
+}
