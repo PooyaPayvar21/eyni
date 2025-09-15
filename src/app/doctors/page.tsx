@@ -25,9 +25,9 @@ export default async function DoctorsPage({
 }: {
   searchParams: SearchParams;
 }) {
-  const city = searchParams?.city?.trim();
-  const q = searchParams?.q?.trim();
-  const specialty = searchParams?.specialty?.trim();
+  const city = await searchParams?.city?.trim();
+  const q = await searchParams?.q?.trim();
+  const specialty = await searchParams?.specialty?.trim();
 
   // Get all active cities for filtering
   const cities = await prisma.city.findMany({

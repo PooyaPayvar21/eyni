@@ -1,28 +1,28 @@
 import prisma from "@/lib/prisma";
 import { notFound } from "next/navigation";
-import type { Metadata } from 'next';
+import type { Metadata } from "next";
 import { generateSEOMetadata } from "@/lib/metadata";
 import { BookingForm } from "@/components/booking-form";
 import { BookingSuccessToast } from "@/components/booking-success-toast";
 import { Stethoscope, MapPin, Building2, Clock, Calendar } from "lucide-react";
 
 type Props = {
-  params: { slug: string },
-  searchParams?: { booked?: string },
-}
+  params: { slug: string };
+  searchParams?: { booked?: string };
+};
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const doctor = await prisma.doctor.findUnique({
     where: { slug: params.slug },
     include: {
-      clinic: { include: { city: true } }
-    }
+      clinic: { include: { city: true } },
+    },
   });
 
   if (!doctor) {
     return {
       title: "پزشک یافت نشد",
-      description: "پزشک مورد نظر در سیستم وجود ندارد."
+      description: "پزشک مورد نظر در سیستم وجود ندارد.",
     };
   }
 
@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description,
     keywords,
     path: `/doctors/${params.slug}`,
-    type: 'profile'
+    type: "profile",
   });
 }
 
@@ -46,9 +46,9 @@ export default async function DoctorPage({ params, searchParams }: Props) {
       clinic: { include: { city: true } },
       slots: {
         where: { isBooked: false },
-        orderBy: { datetime: 'asc' }
-      }
-    }
+        orderBy: { datetime: "asc" },
+      },
+    },
   });
 
   if (!doctor) {
@@ -66,7 +66,9 @@ export default async function DoctorPage({ params, searchParams }: Props) {
             <div className="mb-8">
               <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
                 <div>
-                  <h1 className="text-3xl font-bold mb-2">دکتر {doctor.name}</h1>
+                  <h1 className="text-3xl font-bold mb-2">
+                    دکتر {doctor.name}
+                  </h1>
                   <div className="flex flex-wrap items-center text-muted-foreground gap-4">
                     <span className="flex items-center gap-1">
                       <Stethoscope className="w-4 h-4" />
@@ -105,7 +107,9 @@ export default async function DoctorPage({ params, searchParams }: Props) {
                 <h2 className="text-xl font-semibold mb-4">اطلاعات مطب</h2>
                 <div className="space-y-4">
                   <div>
-                    <h3 className="font-medium text-muted-foreground mb-1">آدرس</h3>
+                    <h3 className="font-medium text-muted-foreground mb-1">
+                      آدرس
+                    </h3>
                     <p>{doctor.clinic.address}</p>
                   </div>
                   {/* Add more clinic details here */}
