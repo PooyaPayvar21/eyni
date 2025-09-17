@@ -84,13 +84,13 @@ export function TopDoctorsGrid({
 
       <div
         ref={containerRef}
-        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6"
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 sm:gap-7"
       >
         {filtered.map((doc) => (
           <Link
             key={doc.id}
             href={`/doctors/${doc.slug}`}
-            className="group rounded-2xl p-[1px] bg-gradient-to-br from-cyan-500/30 to-sky-500/30 hover:from-cyan-500/50 hover:to-sky-500/50 transition will-change-transform overflow-hidden"
+            className="w-[350px] group rounded-2xl p-[1px] bg-gradient-to-br from-cyan-500/30 to-sky-500/30 hover:from-cyan-500/50 hover:to-sky-500/50 transition will-change-transform overflow-hidden"
           >
             <div
               data-animate

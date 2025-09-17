@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import prisma from "@/lib/prisma";
 import Link from "next/link";
 import {
@@ -172,7 +174,7 @@ export default async function Home() {
           </div>
           <Link
             href="/doctors"
-            className="hidden sm:inline-flex rounded-md border px-3 py-1.5 text-sm hover:bg-accent hover:bg-[#AEDCEA] hover:scale-105 transition-all transform-0.1"
+            className="w-full hidden sm:inline-flex rounded-md border px-3 py-1.5 text-sm hover:bg-accent hover:bg-[#AEDCEA] hover:scale-105 transition-all transform-0.1"
           >
             مشاهده همه
           </Link>
