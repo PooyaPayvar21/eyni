@@ -1,15 +1,7 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import prisma from "@/lib/prisma";
 import Link from "next/link";
-import {
-  ShieldCheck,
-  Clock,
-  Search,
-  MapPin,
-  Building2,
-  ArrowRight,
-} from "lucide-react";
+import { ShieldCheck, Clock, Search, MapPin } from "lucide-react";
 import { TopDoctorsGrid } from "@/components/top-doctors-grid";
 
 export default async function Home() {
@@ -174,7 +166,7 @@ export default async function Home() {
           </div>
           <Link
             href="/doctors"
-            className="w-full hidden sm:inline-flex rounded-md border px-3 py-1.5 text-sm hover:bg-accent hover:bg-[#AEDCEA] hover:scale-105 transition-all transform-0.1"
+            className="hidden sm:inline-flex rounded-md border px-3 py-1.5 text-sm hover:bg-accent hover:bg-[#AEDCEA] hover:scale-105 transition-all transform-0.1"
           >
             مشاهده همه
           </Link>

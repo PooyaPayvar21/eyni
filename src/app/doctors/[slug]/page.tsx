@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import prisma from "@/lib/prisma";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
@@ -99,9 +100,9 @@ export default async function DoctorPage({ params, searchParams }: Props) {
       </section>
 
       <div className="container mx-auto px-4 pb-8">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto ">
           {/* Location section */}
-          <section className="mb-8">
+          <section className="mb-8 rounded-2xl border border-[#AEDCEA]">
             <div className="rounded-2xl border bg-card overflow-hidden">
               <div className="p-6">
                 <h2 className="text-xl font-semibold mb-4">اطلاعات مطب</h2>
@@ -119,7 +120,7 @@ export default async function DoctorPage({ params, searchParams }: Props) {
           </section>
 
           {/* Booking section */}
-          <section className="mb-8">
+          <section className="mb-8 border border-[#AEDCEA] rounded-2xl">
             <div className="rounded-2xl border bg-card p-6">
               <h2 className="text-xl font-semibold mb-4">رزرو نوبت</h2>
               <BookingForm doctor={doctor} />
