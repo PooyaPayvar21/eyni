@@ -36,10 +36,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <header className="border-b sticky top-0 z-40 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+          <header className="border-b sticky top-0 z-40 backdrop-blur-2xl supports-[backdrop-filter]:bg-background/60">
             <div className="container mx-auto flex items-center justify-between h-14 px-4">
               <Link href="/" className="font-semibold">
-                Appointment Booking
+                سایت نوبت دهی
               </Link>
               <ThemeToggle />
             </div>
