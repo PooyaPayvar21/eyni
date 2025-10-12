@@ -24,7 +24,7 @@ export function ThemeToggle() {
   return (
     <button
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="px-3 py-2 rounded-md border hover:bg-accent"
+      className="px-3 py-2 rounded-md border hover:bg-accent cursor-pointer"
       aria-label="Toggle theme"
     >
       {isDark ? "🌙" : "🌞"}

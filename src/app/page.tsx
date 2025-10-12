@@ -61,13 +61,13 @@ export default async function Home() {
             <div className="mt-6 flex flex-wrap gap-3 justify-center md:justify-start transition-all transform-0.1">
               <Link
                 href="#top-doctors"
-                className="inline-flex items-center justify-center rounded-md bg-gradient-to-br from-cyan-500/30 to-sky-500/30 px-5 py-2.5 text-primary-foreground font-medium shadow hover:bg-primary/90 w-full sm:w-auto hover:bg-[#B1DEEC] hover:scale-105"
+                className="inline-flex items-center justify-center rounded-md bg-gradient-to-br from-cyan-500/30 to-sky-500/30 px-5 py-2.5 text-primary-foreground font-medium shadow hover:bg-primary/90 w-full sm:w-auto hover:bg-[#093A4F] hover:scale-105"
               >
                 مشاهده پزشکان برتر
               </Link>
               <Link
                 href="/doctors"
-                className="inline-flex items-center bg-gradient-to-br from-cyan-500/30 to-sky-500/30 justify-center rounded-md border px-5 py-2.5 font-medium hover:bg-accent w-full sm:w-auto hover:bg-[#B1DEEC] hover:scale-105"
+                className="inline-flex items-center bg-gradient-to-br from-cyan-500/30 to-sky-500/30 justify-center rounded-md border px-5 py-2.5 font-medium hover:bg-accent w-full sm:w-auto hover:bg-[#093A4F] hover:scale-105"
               >
                 همه پزشکان
               </Link>
